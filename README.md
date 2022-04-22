@@ -1,6 +1,6 @@
-## Valex
+## RepoProvas
 
-With Valex companies can create benefit cards for their employees with security and agility
+Share and discover your teacher's past tests.
 
 Features
 
