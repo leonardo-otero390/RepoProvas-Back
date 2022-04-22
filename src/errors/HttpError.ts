@@ -7,9 +7,4 @@ export default class HttpError extends Error {
 
     Object.setPrototypeOf(this, HttpError.prototype);
   }
-
-  conflict(message: string) {
-    this.message = message;
-    this.status = 409;
-  }
 }

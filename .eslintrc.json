@@ -15,6 +15,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "implicit-arrow-linebreak": "off",
         "import/no-unresolved": "off",
         "comma-dangle": "off",
         "operator-linebreak": "off",

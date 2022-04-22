@@ -11,4 +11,10 @@ routes.post(
   userController.signUp
 );
 
+routes.post(
+  '/login',
+  validateSchema(userSchemas.login, 'body'),
+  userController.login
+);
+
 export default routes;

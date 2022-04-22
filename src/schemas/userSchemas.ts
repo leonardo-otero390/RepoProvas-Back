@@ -5,3 +5,8 @@ export const signUp = Joi.object({
   password: Joi.string().required(),
   confirmPassword: Joi.string().equal(Joi.ref('password')).required(),
 });
+
+export const login = Joi.object({
+  email: Joi.string().email().required(),
+  password: Joi.string().required(),
+});

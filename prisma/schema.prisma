@@ -8,16 +8,16 @@ datasource db {
 }
 
 model Categoriy {
-  id    Int     @id(map: "categories_pk") @default(autoincrement())
-  name  String  @unique
+  id    Int    @id(map: "categories_pk") @default(autoincrement())
+  name  String @unique
   tests Test[]
 
   @@map("categories")
 }
 
 model Discipline {
-  id                   Int                    @id(map: "disciplines_pk") @default(autoincrement())
-  name                 Int                    @default(autoincrement())
+  id                   Int                   @id(map: "disciplines_pk") @default(autoincrement())
+  name                 Int                   @default(autoincrement())
   termId               Int
   terms                Term                  @relation(fields: [termId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "disciplines_fk0")
   teatchersDisciplines TeatchersDiscipline[]
@@ -26,15 +26,15 @@ model Discipline {
 }
 
 model Teacher {
-  id                   Int                    @id(map: "teachers_pk") @default(autoincrement())
-  name                 String                 @unique
+  id                   Int                   @id(map: "teachers_pk") @default(autoincrement())
+  name                 String                @unique
   teatchersDisciplines TeatchersDiscipline[]
 
   @@map("teachers")
 }
 
 model TeatchersDiscipline {
-  id           Int         @id(map: "teatchersDisciplines_pk") @default(autoincrement())
+  id           Int        @id(map: "teatchersDisciplines_pk") @default(autoincrement())
   teacherId    Int
   disciplineId Int
   disciplines  Discipline @relation(fields: [disciplineId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "teatchersDisciplines_fk1")
@@ -45,16 +45,16 @@ model TeatchersDiscipline {
 }
 
 model Term {
-  id          Int           @id(map: "terms_pk") @default(autoincrement())
-  number      Int           @unique
+  id          Int          @id(map: "terms_pk") @default(autoincrement())
+  number      Int          @unique
   disciplines Discipline[]
 
   @@map("terms")
 }
 
 model Test {
-  id                   Int                  @id(map: "tests_pk") @default(autoincrement())
-  name                 String               @unique
+  id                   Int                 @id(map: "tests_pk") @default(autoincrement())
+  name                 String              @unique
   pdfUrl               String
   categoryId           Int
   teacherDisciplineId  Int
