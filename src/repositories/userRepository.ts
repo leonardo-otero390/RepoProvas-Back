@@ -1,10 +1,10 @@
+import { User } from '@prisma/client';
 import { client } from '../database.js';
-import { User } from '../interfaces/User.js';
 
-export async function create(data: User) {
-  await client.users.create({ data });
+export async function create(data: Omit<User, 'id'>) {
+  await client.user.create({ data });
 }
 
 export async function findByEmail(email: string) {
-  return client.users.findUnique({ where: { email } });
+  return client.user.findUnique({ where: { email } });
 }

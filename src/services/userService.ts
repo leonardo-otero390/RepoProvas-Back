@@ -1,6 +1,6 @@
+import { User } from '@prisma/client';
 import bcrypt from 'bcrypt';
 import Conflict from '../errors/ConflictError.js';
-import { User } from '../interfaces/User.js';
 import * as userRepository from '../repositories/userRepository.js';
 
 export async function create({ email, password }: User) {
