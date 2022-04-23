@@ -57,11 +57,65 @@ and
 
 ```json
 {
- "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjUwNjQ5NzgxfQ.Uh1NxvzX-4XHvZOGdsEkCWk-KJTuNFNU8U-5dP59XFw"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjUwNjQ5NzgxfQ.Uh1NxvzX-4XHvZOGdsEkCWk-KJTuNFNU8U-5dP59XFw"
 }
 ```
 
 - it return status <strong>401</strong> for incorrect password or email
+
+ </details>
+
+### All following needs token authorization
+
+<details>
+    <summary>
+        <strong >Authorization</strong>
+    </summary>
+- send a Bearer token on headers like this:
+
+```json
+{
+  "headers": {
+    "authorization": "Bearer 1cf7cccf-48ad-4edd-8b9d-121b1199aaf4"
+  }
+}
+```
+
+- it returns <strong>400</strong> for empty auth or without Bearer
+
+- it returns <strong>401</strong> for unauthorized
+
+</details>
+
+ <details>
+            <summary>
+                <strong>GET</strong> /tests/disciplines
+            </summary>
+
+- it returns status <strong>200</strong> for succes
+
+and
+
+```json
+{
+  "term": {
+    "number": 1,
+    "disciplines": [
+      {
+        "name": "Calculus 1",
+        "tests": [
+          {
+            "name": "Limits",
+            "pdfUrl": "https://repoprovas.org/calculus-limits.pdf",
+            "category": "P1",
+            "teacher": "Flávia"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
  </details>
 
