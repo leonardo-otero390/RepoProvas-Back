@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Categoriy {
+model Category {
   id    Int    @id(map: "categories_pk") @default(autoincrement())
   name  String @unique
   tests Test[]
@@ -17,7 +17,7 @@ model Categoriy {
 
 model Discipline {
   id                   Int                   @id(map: "disciplines_pk") @default(autoincrement())
-  name                 Int                   @default(autoincrement())
+  name                 String                @unique
   termId               Int
   terms                Term                  @relation(fields: [termId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "disciplines_fk0")
   teatchersDisciplines TeatchersDiscipline[]
@@ -58,7 +58,7 @@ model Test {
   pdfUrl               String
   categoryId           Int
   teacherDisciplineId  Int
-  categories           Categoriy           @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tests_fk0")
+  categories           Category           @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tests_fk0")
   teatchersDisciplines TeatchersDiscipline @relation(fields: [teacherDisciplineId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tests_fk1")
 
   @@map("tests")
