@@ -97,24 +97,33 @@ and
 and
 
 ```json
-{
-  "term": {
+[
+  {
+    "id": 22,
     "number": 1,
     "disciplines": [
       {
+        "id": 1,
         "name": "Calculus 1",
         "tests": [
           {
-            "name": "Limits",
-            "pdfUrl": "https://repoprovas.org/calculus-limits.pdf",
-            "category": "P1",
-            "teacher": "Flávia"
+            "id": 2,
+            "name": "Customer Integration Producer",
+            "pdfUrl": "http://loremflickr.com/640/480",
+            "category": {
+              "id": 1,
+              "name": "P1"
+            },
+            "teacher": {
+              "id": 1,
+              "name": "Abraham Zboncak"
+            }
           }
         ]
       }
     ]
   }
-}
+]
 ```
 
  </details>

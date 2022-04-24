@@ -4,7 +4,7 @@ import { client } from '../database.js';
 export async function dropTables() {
   await client.test.deleteMany({});
   await client.category.deleteMany({});
-  await client.teatchersDiscipline.deleteMany({});
+  await client.teachersDiscipline.deleteMany({});
   await client.teacher.deleteMany({});
   await client.discipline.deleteMany({});
   await client.term.deleteMany({});
@@ -70,7 +70,7 @@ export async function populateTeachersDisciplines() {
     });
   }
 
-  await client.teatchersDiscipline.createMany({ data: teachersDisciplines });
+  await client.teachersDiscipline.createMany({ data: teachersDisciplines });
 }
 
 export async function populateTests() {
@@ -80,7 +80,7 @@ export async function populateTests() {
   await populateTeachers();
   await populateTeachersDisciplines();
 
-  const teachersDisciplines = await client.teatchersDiscipline.findMany();
+  const teachersDisciplines = await client.teachersDiscipline.findMany();
   const categories = await client.category.findMany();
   const tests = [];
 

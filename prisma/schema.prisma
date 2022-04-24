@@ -20,7 +20,7 @@ model Discipline {
   name                 String                @unique
   termId               Int
   terms                Term                  @relation(fields: [termId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "disciplines_fk0")
-  teatchersDisciplines TeatchersDiscipline[]
+  teachersDisciplines TeachersDiscipline[]
 
   @@map("disciplines")
 }
@@ -28,20 +28,20 @@ model Discipline {
 model Teacher {
   id                   Int                   @id(map: "teachers_pk") @default(autoincrement())
   name                 String                @unique
-  teatchersDisciplines TeatchersDiscipline[]
+  teachersDisciplines TeachersDiscipline[]
 
   @@map("teachers")
 }
 
-model TeatchersDiscipline {
-  id           Int        @id(map: "teatchersDisciplines_pk") @default(autoincrement())
+model TeachersDiscipline {
+  id           Int        @id(map: "teachersDisciplines_pk") @default(autoincrement())
   teacherId    Int
   disciplineId Int
-  disciplines  Discipline @relation(fields: [disciplineId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "teatchersDisciplines_fk1")
-  teachers     Teacher    @relation(fields: [teacherId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "teatchersDisciplines_fk0")
+  disciplines  Discipline @relation(fields: [disciplineId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "teachersDisciplines_fk1")
+  teachers     Teacher    @relation(fields: [teacherId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "teachersDisciplines_fk0")
   tests        Test[]
 
-  @@map("teatchersDisciplines")
+  @@map("teachersDisciplines")
 }
 
 model Term {
@@ -59,7 +59,7 @@ model Test {
   categoryId           Int
   teacherDisciplineId  Int
   categories           Category           @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tests_fk0")
-  teatchersDisciplines TeatchersDiscipline @relation(fields: [teacherDisciplineId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tests_fk1")
+  teachersDisciplines TeachersDiscipline @relation(fields: [teacherDisciplineId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tests_fk1")
 
   @@map("tests")
 }
