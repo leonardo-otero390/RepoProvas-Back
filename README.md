@@ -87,6 +87,48 @@ and
 
 </details>
 
+<details>
+            <summary>
+                <strong>GET</strong> /teachers/categories/tests
+            </summary>
+
+- it returns status <strong>200</strong> for succes
+
+and
+
+```json
+[
+  {
+    "teacher": {
+      "id": 1,
+      "name": "Abraham Zboncak"
+    },
+    "categories": [
+      {
+        "category": {
+          "id": 1,
+          "name": "P1"
+        },
+        "tests": [
+          {
+            "id": 2,
+            "name": "Customer Integration Producer",
+            "pdfUrl": "http://loremflickr.com/640/480",
+            "discipline": {
+              "id": 6,
+              "name": "Product Integration Representative",
+              "termId": 1
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+ </details>
+
  <details>
             <summary>
                 <strong>GET</strong> /tests/disciplines
