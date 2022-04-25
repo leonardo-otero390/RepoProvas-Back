@@ -1,7 +1,9 @@
 import { Router } from 'express';
 import authRouter from './auth.routes.js';
 import testRouter from './test.routes.js';
-import * as factoryRepository from '../repositories/factoryRepository.js';
+import adminRouter from './admin.routes.js';
+import * as teacherController from '../controllers/teacherController.js';
+import validateToken from '../middlewares/validateToken.js';
 
 const routes = Router();
 
@@ -10,15 +12,15 @@ routes.get('/health', async (req, res) => {
 });
 routes.use(authRouter);
 
-routes.use('/tests', testRouter);
+routes.use('/admin', adminRouter);
 
-routes.post('/populate/tests', async (req, res) => {
-  await factoryRepository.populateTests();
-  res.sendStatus(201);
-});
-routes.delete('/database', async (req, res) => {
-  await factoryRepository.dropTables();
-  res.sendStatus(200);
-});
+routes.use(validateToken);
+
+routes.get(
+  '/teachers/categories/tests',
+  teacherController.findWithCategoriesAndTests
+);
+
+routes.use('/tests', testRouter);
 
 export default routes;

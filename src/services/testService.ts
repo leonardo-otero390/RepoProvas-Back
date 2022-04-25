@@ -73,7 +73,17 @@ async function groupByDisciplines(tests: Tests) {
 }
 
 export async function find() {
-  const tests = await testRepository.findMany();
+  const tests =
+    await testRepository.findManyWithCategoriesAndTeachersDisciplines();
   if (!tests) throw httpErrors.notFound('There are no tests');
   return groupByDisciplines(tests);
+}
+
+export async function findManyWithDisciplines() {
+  const tests = await testRepository.findManyWithDisciplines();
+  if (!tests) throw httpErrors.notFound('There are no tests');
+  return tests.map(({ teacherDisciplineId, teachersDisciplines, ...t }) => ({
+    ...t,
+    discipline: teachersDisciplines.disciplines,
+  }));
 }
