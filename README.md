@@ -111,6 +111,34 @@ and
 
  </details>
 
+<details>
+            <summary>
+                <strong>GET</strong> /terms/TERMID/disciplines
+            </summary>
+
+- change TERMID to term id you-re looking for
+
+- it returns status <strong>200</strong> for succes
+
+and
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Legacy Mobility Analyst",
+    "termId": 1
+  },
+  {
+    "id": 2,
+    "name": "Regional Metrics Designer",
+    "termId": 1
+  }
+]
+```
+
+ </details>
+
 ## Technologies
 
 <div style="display: flex; gap: 10px; height: 40px;">
