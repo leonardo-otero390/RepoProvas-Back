@@ -54,7 +54,7 @@ model Term {
 
 model Test {
   id                   Int                 @id(map: "tests_pk") @default(autoincrement())
-  name                 String              @unique
+  name                 String              
   pdfUrl               String
   categoryId           Int
   teacherDisciplineId  Int
