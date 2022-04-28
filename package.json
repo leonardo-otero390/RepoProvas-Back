@@ -9,7 +9,7 @@
     "start": "npx ts-node src/server.ts",
     "dev": "nodemon src/server.ts",
     "test": "NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i",
-    "test:watch": "NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i --watchAll",
+    "test:watch": "NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest --watchAll",
     "test:migrations": "NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test npx prisma migrate dev",
     "test:seed": "NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test npx prisma db seed",
     "test:cleardb": "NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test ts-node prisma/clearDBexe.ts"

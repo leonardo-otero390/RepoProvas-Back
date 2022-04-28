@@ -15,11 +15,11 @@ afterAll(async () => {
 });
 
 describe('POST /sign-up', () => {
-  it('should return 422', async () => {
+  it('should return 400', async () => {
     const response = await agent
       .post('/sign-up')
       .send({ email: faker.random.words(), password: faker.random.word() });
-    expect(response.status).toBe(422);
+    expect(response.status).toBe(400);
   });
 
   it('should return 201', async () => {
@@ -39,25 +39,23 @@ describe('POST /sign-up', () => {
   });
 });
 
-describe('POST /sign-in', () => {
-  it('should return 422', async () => {
-    const response = await agent
-      .post('/sign-in')
-      .send({ email: faker.random.words() });
-    expect(response.status).toBe(422);
+describe('POST /login', () => {
+  it('should return 400', async () => {
+    const response = await agent.post('/login');
+    expect(response.status).toBe(400);
   });
 
   it('should return 401', async () => {
     const user = await userFactory.createUser();
     const response = await agent
-      .post('/sign-in')
+      .post('/login')
       .send({ email: user.email, password: faker.random.word() });
     expect(response.status).toBe(401);
   });
 
   it('should return 200', async () => {
     const user = await userFactory.createUser();
-    const response = await agent.post('/sign-in').send(user);
+    const response = await agent.post('/login').send(user);
     expect(response.status).toBe(200);
     expect(response.body.token).toBeTruthy();
   });
