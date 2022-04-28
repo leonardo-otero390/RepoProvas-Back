@@ -13,11 +13,13 @@ export default async function validateToken(
 ) {
   const { authorization } = req.headers;
   if (!authorization) {
-    throw httpErrors.badRequest('Missing authorization header');
+    throw httpErrors.unauthorized('Missing authorization header');
   }
 
   const token = authorization.replace('Bearer ', '');
-  if (!token) throw httpErrors.badRequest('Missing token');
+  if (!token) {
+    throw httpErrors.unauthorized('Missing token');
+  }
 
   try {
     const { userId } = jwt.verify(token, process.env.JWT_SECRET) as {

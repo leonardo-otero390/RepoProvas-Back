@@ -10,7 +10,6 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
-  await utilsDatabase.clearDatabase();
   await utilsDatabase.disconnect();
 });
 
