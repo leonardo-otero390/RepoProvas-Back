@@ -26,3 +26,27 @@ describe('GET /terms', () => {
     expect(response.status).toBe(200);
   });
 });
+
+describe('GET /terms/:id/disciplines', () => {
+  let token: string;
+  beforeEach(async () => {
+    token = await createValidToken(agent);
+  });
+  it('should return 401', async () => {
+    const response = await agent.get('/terms/1/disciplines');
+    expect(response.status).toBe(401);
+  });
+  it('should return 400', async () => {
+    const response = await agent
+      .get('/terms/id/disciplines')
+      .set({ authorization: `Bearer ${token}` });
+    expect(response.status).toBe(400);
+  });
+
+  it('should return 200', async () => {
+    const response = await agent
+      .get('/terms/1/disciplines')
+      .set({ authorization: `Bearer ${token}` });
+    expect(response.status).toBe(200);
+  });
+});
