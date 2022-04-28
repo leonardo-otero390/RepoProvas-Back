@@ -116,7 +116,7 @@ and
                 <strong>GET</strong> /terms/TERMID/disciplines
             </summary>
 
-- change TERMID to term id you-re looking for
+- change TERMID to term id you're looking for
 
 - it returns status <strong>200</strong> for succes
 
@@ -133,6 +133,46 @@ and
     "id": 2,
     "name": "Regional Metrics Designer",
     "termId": 1
+  }
+]
+```
+
+ </details>
+
+<details>
+            <summary>
+                <strong>GET</strong> /disciplines/DISCIPLINEID/tests
+            </summary>
+
+- change DISCIPLINEID to discipline id you're looking for
+
+- it returns status <strong>200</strong> for succes
+
+and
+
+```json
+[
+  {
+    "id": 2,
+    "name": "P2",
+    "tests": [
+      {
+        "id": 12,
+        "name": "2009.1",
+        "pdfUrl": "http://loremflickr.com/640/480",
+        "categoryId": 2,
+        "teacherDisciplineId": 6,
+        "teachersDisciplines": {
+          "id": 6,
+          "teacherId": 5,
+          "disciplineId": 1,
+          "teachers": {
+            "id": 5,
+            "name": "Evan Hyatt"
+          }
+        }
+      }
+    ]
   }
 ]
 ```
