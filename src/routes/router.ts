@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import authRouter from './auth.routes.js';
+import authRouter from './authRouter.js';
 import validateToken from '../middlewares/validateToken.js';
-import termRouter from './term.routes.js';
+import termRouter from './termRouter.js';
 
 const routes = Router();
 

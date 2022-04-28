@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import * as termController from '../controllers/termController.js';
 
-const routes = Router();
+const termRouter = Router();
 
-routes.get('/', termController.findMany);
+termRouter.get('/', termController.findMany);
 
-export default routes;
+export default termRouter;
