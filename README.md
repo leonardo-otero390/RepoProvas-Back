@@ -89,7 +89,7 @@ and
 
 <details>
             <summary>
-                <strong>GET</strong> /teachers/categories/tests
+                <strong>GET</strong> /terms
             </summary>
 
 - it returns status <strong>200</strong> for succes
@@ -99,71 +99,12 @@ and
 ```json
 [
   {
-    "teacher": {
-      "id": 1,
-      "name": "Abraham Zboncak"
-    },
-    "categories": [
-      {
-        "category": {
-          "id": 1,
-          "name": "P1"
-        },
-        "tests": [
-          {
-            "id": 2,
-            "name": "Customer Integration Producer",
-            "pdfUrl": "http://loremflickr.com/640/480",
-            "discipline": {
-              "id": 6,
-              "name": "Product Integration Representative",
-              "termId": 1
-            }
-          }
-        ]
-      }
-    ]
-  }
-]
-```
-
- </details>
-
- <details>
-            <summary>
-                <strong>GET</strong> /tests/disciplines
-            </summary>
-
-- it returns status <strong>200</strong> for succes
-
-and
-
-```json
-[
+    "id": 1,
+    "number": 1
+  },
   {
-    "id": 22,
-    "number": 1,
-    "disciplines": [
-      {
-        "id": 1,
-        "name": "Calculus 1",
-        "tests": [
-          {
-            "id": 2,
-            "name": "Customer Integration Producer",
-            "pdfUrl": "http://loremflickr.com/640/480",
-            "category": {
-              "id": 1,
-              "name": "P1"
-            },
-            "teacher": {
-              "id": 1,
-              "name": "Abraham Zboncak"
-            }
-          }
-        ]
-      }
-    ]
+    "id": 2,
+    "number": 2
   }
 ]
 ```

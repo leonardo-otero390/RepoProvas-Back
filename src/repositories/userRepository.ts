@@ -7,3 +7,6 @@ export const create = async (data: Omit<User, 'id'>) => {
 
 export const findByEmail = async (email: string) =>
   client.user.findUnique({ where: { email } });
+
+export const findById = async (id: number) =>
+  client.user.findUnique({ where: { id } });
