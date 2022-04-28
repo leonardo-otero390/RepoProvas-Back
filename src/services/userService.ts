@@ -12,3 +12,9 @@ export async function create({ email, password }: User) {
     password: hashedPassword,
   });
 }
+
+export async function findById(id: number) {
+  const user = await userRepository.findById(id);
+  if (!user) throw httpErrors.notFound('User not found');
+  return user;
+}

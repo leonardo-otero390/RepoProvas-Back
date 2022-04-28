@@ -15,5 +15,5 @@ export async function create({ email, password }: Omit<User, 'id'>) {
   const { id, password: hashedPassword } = user;
   comparePassword(password, hashedPassword);
 
-  return jwt.sign({ id }, process.env.JWT_SECRET);
+  return jwt.sign({ userId: id }, process.env.JWT_SECRET);
 }
