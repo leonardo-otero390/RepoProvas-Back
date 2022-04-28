@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import authRouter from './auth.routes.js';
 import testRouter from './test.routes.js';
-import adminRouter from './admin.routes.js';
 import * as teacherController from '../controllers/teacherController.js';
 import validateToken from '../middlewares/validateToken.js';
 
@@ -11,8 +10,6 @@ routes.get('/health', async (req, res) => {
   res.sendStatus(200);
 });
 routes.use(authRouter);
-
-routes.use('/admin', adminRouter);
 
 routes.use(validateToken);
 
