@@ -9,7 +9,6 @@ export async function createUser() {
   };
 
   const hashedPassword = bcrypt.hashSync(user.password, 12);
-
   await client.user.create({
     data: { email: user.email, password: hashedPassword },
   });
