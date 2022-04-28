@@ -12,25 +12,25 @@ afterAll(async () => {
   await utilsDatabase.disconnect();
 });
 
-describe('GET /terms/:id/disciplines', () => {
+describe('GET /disciplines/:id/tests', () => {
   let token: string;
   beforeEach(async () => {
     token = await createValidToken(agent);
   });
   it('should return 401', async () => {
-    const response = await agent.get('/terms/1/disciplines');
+    const response = await agent.get('/disciplines/1/tests');
     expect(response.status).toBe(401);
   });
   it('should return 400', async () => {
     const response = await agent
-      .get('/terms/id/disciplines')
+      .get('/disciplines/id/tests')
       .set({ authorization: `Bearer ${token}` });
     expect(response.status).toBe(400);
   });
 
   it('should return 200', async () => {
     const response = await agent
-      .get('/terms/1/disciplines')
+      .get('/disciplines/1/tests')
       .set({ authorization: `Bearer ${token}` });
     expect(response.status).toBe(200);
   });
