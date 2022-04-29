@@ -4,11 +4,17 @@ Share and discover your teacher's past tests.
 
 Features
 
-- [ ] Auth
+- [x] Auth
 
-- [ ] Tests view per discipline
+- [x] Tests view per discipline
 
-- [ ] Tests view per teacher
+- [x] Tests view per teacher
+
+- [ ] Search disciplines/teachers
+
+- [ ] Test viwers count
+
+- [ ] Insert tests
 
 #### BONUS
 
@@ -89,29 +95,10 @@ and
 
 <details>
             <summary>
-                <strong>GET</strong> /terms
+                <strong>Routes</strong> /teachers
             </summary>
 
-- it returns status <strong>200</strong> for succes
-
-and
-
-```json
-[
-  {
-    "id": 1,
-    "number": 1
-  },
-  {
-    "id": 2,
-    "number": 2
-  }
-]
-```
-
- </details>
-
- <details>
+<details>
             <summary>
                 <strong>GET</strong> /teachers
             </summary>
@@ -135,40 +122,12 @@ and
 
  </details>
 
-<details>
+ <details>
             <summary>
-                <strong>GET</strong> /terms/TERMID/disciplines
+                <strong>GET</strong> /teachers/TEACHERID/tests
             </summary>
 
-- change TERMID to term id you're looking for
-
-- it returns status <strong>200</strong> for succes
-
-and
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Legacy Mobility Analyst",
-    "termId": 1
-  },
-  {
-    "id": 2,
-    "name": "Regional Metrics Designer",
-    "termId": 1
-  }
-]
-```
-
- </details>
-
-<details>
-            <summary>
-                <strong>GET</strong> /disciplines/DISCIPLINEID/tests
-            </summary>
-
-- change DISCIPLINEID to discipline id you're looking for
+- change TEACHERID to teacher id you're looking for
 
 - it returns status <strong>200</strong> for succes
 
@@ -203,12 +162,73 @@ and
 
  </details>
 
+ </details>
+
+  <details>
+              <summary>
+                  <strong>Routes</strong> /terms
+              </summary>
+
+  <details>
+              <summary>
+                  <strong>GET</strong> /terms
+              </summary>
+
+- it returns status <strong>200</strong> for succes
+
+and
+
+```json
+[
+  {
+    "id": 1,
+    "number": 1
+  },
+  {
+    "id": 2,
+    "number": 2
+  }
+]
+```
+
+  </details>
+
+  <details>
+              <summary>
+                  <strong>GET</strong> /terms/TERMID/disciplines
+              </summary>
+
+- change TERMID to term id you're looking for
+
+- it returns status <strong>200</strong> for succes
+
+and
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Legacy Mobility Analyst",
+    "termId": 1
+  },
+  {
+    "id": 2,
+    "name": "Regional Metrics Designer",
+    "termId": 1
+  }
+]
+```
+
+  </details>
+
+ </details>
+
 <details>
             <summary>
-                <strong>GET</strong> /teachers/TEACHERID/tests
+                <strong>GET</strong> /disciplines/DISCIPLINEID/tests
             </summary>
 
-- change TEACHERID to teacher id you're looking for
+- change DISCIPLINEID to discipline id you're looking for
 
 - it returns status <strong>200</strong> for succes
 
