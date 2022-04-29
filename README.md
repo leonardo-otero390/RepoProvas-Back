@@ -111,6 +111,30 @@ and
 
  </details>
 
+ <details>
+            <summary>
+                <strong>GET</strong> /teachers
+            </summary>
+
+- it returns status <strong>200</strong> for succes
+
+and
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Abraham Zboncak"
+  },
+  {
+    "id": 2,
+    "name": "Mrs. Ollie Gibson"
+  }
+]
+```
+
+ </details>
+
 <details>
             <summary>
                 <strong>GET</strong> /terms/TERMID/disciplines
