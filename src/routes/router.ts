@@ -3,6 +3,7 @@ import authRouter from './authRouter.js';
 import validateToken from '../middlewares/validateToken.js';
 import termRouter from './termRouter.js';
 import disciplineRouter from './disciplineRouter.js';
+import teacherRouter from './teacherRouter.js';
 
 const routes = Router();
 
@@ -16,5 +17,7 @@ routes.use(validateToken);
 routes.use('/terms', termRouter);
 
 routes.use('/disciplines', disciplineRouter);
+
+routes.use('/teachers', teacherRouter);
 
 export default routes;
