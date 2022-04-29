@@ -203,6 +203,46 @@ and
 
  </details>
 
+<details>
+            <summary>
+                <strong>GET</strong> /teachers/TEACHERID/tests
+            </summary>
+
+- change TEACHERID to teacher id you're looking for
+
+- it returns status <strong>200</strong> for succes
+
+and
+
+```json
+[
+  {
+    "id": 2,
+    "name": "P2",
+    "tests": [
+      {
+        "id": 12,
+        "name": "2009.1",
+        "pdfUrl": "http://loremflickr.com/640/480",
+        "categoryId": 2,
+        "teacherDisciplineId": 6,
+        "teachersDisciplines": {
+          "id": 6,
+          "teacherId": 5,
+          "disciplineId": 1,
+          "teachers": {
+            "id": 5,
+            "name": "Evan Hyatt"
+          }
+        }
+      }
+    ]
+  }
+]
+```
+
+ </details>
+
 ## Technologies
 
 <div style="display: flex; gap: 10px; height: 40px;">
