@@ -4,9 +4,12 @@ export const findManyByDisciplineIdGroupByCategory = async (id: number) =>
   client.category.findMany({
     include: {
       tests: {
-        include: {
+        select: {
+          id: true,
+          name: true,
+          pdfUrl: true,
           teachersDisciplines: {
-            include: {
+            select: {
               teachers: true,
             },
           },
@@ -20,7 +23,10 @@ export const findManyByTeacherIdGroupByCategory = async (id: number) =>
   client.category.findMany({
     include: {
       tests: {
-        include: {
+        select: {
+          id: true,
+          name: true,
+          pdfUrl: true,
           teachersDisciplines: {
             select: {
               disciplines: true,
