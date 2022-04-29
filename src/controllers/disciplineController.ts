@@ -10,3 +10,15 @@ export async function findManyByTermId(req: Request, res: Response) {
   const disciplines = await disciplineService.findManyByTermId(termId);
   return res.send(disciplines);
 }
+
+export async function findMany(req: Request, res: Response) {
+  const { name } = req.query;
+  if (name) {
+    const disciplines = await disciplineService.findManyByPartialName(
+      name.toString()
+    );
+    return res.send(disciplines);
+  }
+  const disciplines = await disciplineService.findMany();
+  return res.send(disciplines);
+}

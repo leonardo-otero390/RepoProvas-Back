@@ -6,3 +6,9 @@ export async function findMany() {
   if (!teachers) httpErrors.notFound('Não foi possível encontrar periodos');
   return teachers;
 }
+
+export async function findManyByPartialName(name: string) {
+  const teachers = await teacherRepository.findManyByPartialName(name);
+  if (!teachers) httpErrors.notFound('Não foi possível encontrar periodos');
+  return teachers;
+}
