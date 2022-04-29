@@ -26,3 +26,27 @@ describe('GET /teachers', () => {
     expect(response.status).toBe(200);
   });
 });
+
+describe('GET /teachers/:id/tests', () => {
+  let token: string;
+  beforeEach(async () => {
+    token = await createValidToken(agent);
+  });
+  it('should return 401', async () => {
+    const response = await agent.get('/teachers/1/tests');
+    expect(response.status).toBe(401);
+  });
+  it('should return 400', async () => {
+    const response = await agent
+      .get('/teachers/id/tests')
+      .set({ authorization: `Bearer ${token}` });
+    expect(response.status).toBe(400);
+  });
+
+  it('should return 200', async () => {
+    const response = await agent
+      .get('/teachers/1/tests')
+      .set({ authorization: `Bearer ${token}` });
+    expect(response.status).toBe(200);
+  });
+});
