@@ -10,7 +10,7 @@ Features
 
 - [x] Tests view per teacher
 
-- [ ] Search disciplines/teachers
+- [x] Search disciplines/teachers
 
 - [ ] Test viwers count
 
@@ -102,6 +102,8 @@ and
             <summary>
                 <strong>GET</strong> /teachers
             </summary>
+
+- you can filter by querying name with at least 3 char (?name=)
 
 - it returns status <strong>200</strong> for succes
 
@@ -220,6 +222,39 @@ and
  </details>
 
 <details>
+              <summary>
+                  <strong>Routes</strong> /disciplines
+              </summary>
+
+<details>
+            <summary>
+                <strong>GET</strong> /disciplines
+            </summary>
+
+- you can filter by querying name with at least 3 char (?name=)
+
+- it returns status <strong>200</strong> for succes
+
+and
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Legacy Mobility Analyst",
+    "termId": 1
+  },
+  {
+    "id": 17,
+    "name": "Legacy Assurance Consultant",
+    "termId": 6
+  }
+]
+```
+
+ </details>
+
+<details>
             <summary>
                 <strong>GET</strong> /disciplines/DISCIPLINEID/tests
             </summary>
@@ -256,6 +291,8 @@ and
   }
 ]
 ```
+
+ </details>
 
  </details>
 
