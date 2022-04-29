@@ -136,22 +136,18 @@ and
 ```json
 [
   {
-    "id": 2,
-    "name": "P2",
+    "id": 1,
+    "name": "P1",
     "tests": [
       {
-        "id": 12,
-        "name": "2009.1",
+        "id": 2,
+        "name": "Customer Integration Producer",
         "pdfUrl": "http://loremflickr.com/640/480",
-        "categoryId": 2,
-        "teacherDisciplineId": 6,
         "teachersDisciplines": {
-          "id": 6,
-          "teacherId": 5,
-          "disciplineId": 1,
-          "teachers": {
-            "id": 5,
-            "name": "Evan Hyatt"
+          "disciplines": {
+            "id": 6,
+            "name": "Product Integration Representative",
+            "termId": 1
           }
         }
       }
