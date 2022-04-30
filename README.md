@@ -14,11 +14,15 @@ Features
 
 - [x] Test viwers count
 
-- [ ] Insert tests
+- [x] Insert tests
 
 #### BONUS
 
 - [ ] OAuth
+
+- [ ] Send email
+
+- [ ] Save pdf files
 
 ## Endpoints
 
@@ -288,6 +292,42 @@ and
 ```
 
  </details>
+
+ </details>
+
+ <details>
+            <summary>
+                <strong>POST</strong> /tests
+            </summary>
+
+- send a body
+
+```json
+{
+  "name": "2009.1", //string
+  "pdfUrl": "http://loremflickr.com/640/480", //url
+  "categoryId": 2, // number
+  "teacherId": 6, //number
+  "disciplineId":3, //number
+}
+```
+
+- it return status <strong>404</strong> if any of these ids doesn't match
+
+- it returns status <strong>200</strong> for succes
+
+and
+
+```json
+{
+  "id": 12,
+  "name": "2009.1",
+  "pdfUrl": "http://loremflickr.com/640/480",
+  "categoryId": 2,
+  "teacherDisciplineId": 6,
+  "views": 2
+}
+```
 
  </details>
 
