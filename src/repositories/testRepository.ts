@@ -1,4 +1,7 @@
 import { client } from '../database.js';
+import { NewTest } from '../interfaces/Test.js';
+
+export const create = async (data: NewTest) => client.test.create({ data });
 
 export const find = async (id: number) =>
   client.test.findUnique({ where: { id } });
@@ -6,42 +9,46 @@ export const find = async (id: number) =>
 export const incrementViews = async (id: number) =>
   client.test.update({ data: { views: { increment: 1 } }, where: { id } });
 
-export const findManyByDisciplineIdGroupByCategory = async (id: number) =>
-  client.category.findMany({
+function searchSettings({
+  selection,
+  filter,
+}: {
+  selection: { teachers: true } | { disciplines: true };
+  filter: { teacherId: number } | { disciplineId: number };
+}) {
+  const defaultTestSettings = {
+    id: true,
+    name: true,
+    pdfUrl: true,
+    views: true,
+  };
+  return {
     include: {
       tests: {
         select: {
-          id: true,
-          name: true,
-          pdfUrl: true,
-          views: true,
+          ...defaultTestSettings,
           teachersDisciplines: {
-            select: {
-              teachers: true,
-            },
+            select: selection,
           },
         },
-        where: { teachersDisciplines: { disciplineId: id } },
+        where: { teachersDisciplines: filter },
       },
     },
-  });
+  };
+}
+
+export const findManyByDisciplineIdGroupByCategory = async (id: number) =>
+  client.category.findMany(
+    searchSettings({
+      selection: { teachers: true },
+      filter: { disciplineId: id },
+    })
+  );
 
 export const findManyByTeacherIdGroupByCategory = async (id: number) =>
-  client.category.findMany({
-    include: {
-      tests: {
-        select: {
-          id: true,
-          name: true,
-          pdfUrl: true,
-          views: true,
-          teachersDisciplines: {
-            select: {
-              disciplines: true,
-            },
-          },
-        },
-        where: { teachersDisciplines: { teacherId: id } },
-      },
-    },
-  });
+  client.category.findMany(
+    searchSettings({
+      selection: { disciplines: true },
+      filter: { teacherId: id },
+    })
+  );

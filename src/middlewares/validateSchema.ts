@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { ObjectSchema } from 'joi';
-import { ReqTypes } from '../types/ReqTypes.js';
+
+type ReqTypes = 'body' | 'params' | 'query';
 
 export default function validateSchema(schema: ObjectSchema, method: ReqTypes) {
   return (req: Request, res: Response, next: NextFunction) => {

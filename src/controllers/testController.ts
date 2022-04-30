@@ -29,3 +29,8 @@ export async function incrementViews(req: Request, res: Response) {
   const test = await testService.incrementViews(id);
   return res.send(test);
 }
+
+export async function create(req: Request, res: Response) {
+  const result = await testService.create(req.body);
+  return res.status(201).send(result);
+}
