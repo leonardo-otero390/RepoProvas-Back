@@ -16,18 +16,18 @@ model Category {
 }
 
 model Discipline {
-  id                   Int                   @id(map: "disciplines_pk") @default(autoincrement())
-  name                 String                @unique
-  termId               Int
-  terms                Term                  @relation(fields: [termId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "disciplines_fk0")
+  id                  Int                  @id(map: "disciplines_pk") @default(autoincrement())
+  name                String               @unique
+  termId              Int
+  terms               Term                 @relation(fields: [termId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "disciplines_fk0")
   teachersDisciplines TeachersDiscipline[]
 
   @@map("disciplines")
 }
 
 model Teacher {
-  id                   Int                   @id(map: "teachers_pk") @default(autoincrement())
-  name                 String                @unique
+  id                  Int                  @id(map: "teachers_pk") @default(autoincrement())
+  name                String               @unique
   teachersDisciplines TeachersDiscipline[]
 
   @@map("teachers")
@@ -53,12 +53,13 @@ model Term {
 }
 
 model Test {
-  id                   Int                 @id(map: "tests_pk") @default(autoincrement())
-  name                 String              
-  pdfUrl               String
-  categoryId           Int
-  teacherDisciplineId  Int
-  categories           Category           @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tests_fk0")
+  id                  Int                @id(map: "tests_pk") @default(autoincrement())
+  name                String
+  pdfUrl              String
+  categoryId          Int
+  teacherDisciplineId Int
+  views               Int                @default(0)
+  categories          Category           @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tests_fk0")
   teachersDisciplines TeachersDiscipline @relation(fields: [teacherDisciplineId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tests_fk1")
 
   @@map("tests")
