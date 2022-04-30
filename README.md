@@ -12,7 +12,7 @@ Features
 
 - [x] Search disciplines/teachers
 
-- [ ] Test viwers count
+- [x] Test viwers count
 
 - [ ] Insert tests
 
@@ -268,26 +268,50 @@ and
 ```json
 [
   {
-        "id": 2,
-        "name": "P2",
-        "tests": [
-            {
-                "id": 12,
-                "name": "2009.1",
-                "pdfUrl": "http://loremflickr.com/640/480",
-                "teachersDisciplines": {
-                    "teachers": {
-                        "id": 5,
-                        "name": "Evan Hyatt"
-                    }
-                }
-            }
-        ]
-    },
+    "id": 2,
+    "name": "P2",
+    "tests": [
+      {
+        "id": 12,
+        "name": "2009.1",
+        "pdfUrl": "http://loremflickr.com/640/480",
+        "teachersDisciplines": {
+          "teachers": {
+            "id": 5,
+            "name": "Evan Hyatt"
+          }
+        }
+      }
+    ]
+  }
 ]
 ```
 
  </details>
+
+ </details>
+
+ <details>
+            <summary>
+                <strong>PATCH</strong> /tests/TESTID/views
+            </summary>
+
+- change TESTID to test id you're looking for
+
+- it returns status <strong>200</strong> for succes
+
+and
+
+```json
+{
+  "id": 12,
+  "name": "2009.1",
+  "pdfUrl": "http://loremflickr.com/640/480",
+  "categoryId": 2,
+  "teacherDisciplineId": 6,
+  "views": 2
+}
+```
 
  </details>
 

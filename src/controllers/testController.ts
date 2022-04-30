@@ -20,3 +20,12 @@ export async function findManyByTeacherId(req: Request, res: Response) {
   const tests = await testService.findManyByTeacherId(teacherId);
   return res.send(tests);
 }
+
+export async function incrementViews(req: Request, res: Response) {
+  const id = Number(req.params.id);
+  if (Number.isNaN(id)) {
+    return res.status(400).send('O id do teste deve ser um número');
+  }
+  const test = await testService.incrementViews(id);
+  return res.send(test);
+}

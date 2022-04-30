@@ -12,3 +12,9 @@ export async function findManyByTeacherId(id: number) {
   if (!tests) httpErrors.notFound('Não foi possível encontrar tests');
   return tests;
 }
+
+export async function incrementViews(id: number) {
+  const test = await testRepository.find(id);
+  if (!test) httpErrors.notFound('Não foi possível encontrar teste');
+  return testRepository.incrementViews(id);
+}
