@@ -32,7 +32,7 @@ describe('POST /sign-up', () => {
   });
 
   it('should return 409', async () => {
-    const user = await userFactory.createUser();
+    const user = await userFactory.create();
     const response = await agent.post('/sign-up').send(user);
     expect(response.status).toBe(409);
   });
@@ -45,7 +45,7 @@ describe('POST /login', () => {
   });
 
   it('should return 401', async () => {
-    const user = await userFactory.createUser();
+    const user = await userFactory.create();
     const response = await agent
       .post('/login')
       .send({ email: user.email, password: faker.random.word() });
@@ -53,7 +53,7 @@ describe('POST /login', () => {
   });
 
   it('should return 200', async () => {
-    const user = await userFactory.createUser();
+    const user = await userFactory.create();
     const response = await agent.post('/login').send(user);
     expect(response.status).toBe(200);
     expect(response.body.token).toBeTruthy();

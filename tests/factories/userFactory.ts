@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 import bcrypt from 'bcrypt';
 import { client } from '../../src/database.js';
 
-export async function createUser() {
+export async function create() {
   const user = {
     email: faker.internet.email(),
     password: faker.internet.password(),
