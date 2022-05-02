@@ -17,4 +17,9 @@ disciplineRouter.get(
   categoryController.findManyByDisciplineId
 );
 
+disciplineRouter.get(
+  '/:disciplineId/teachers',
+  disciplineController.findTeachers
+);
+
 export default disciplineRouter;
