@@ -8,3 +8,7 @@ export async function find(id: number) {
   }
   return result;
 }
+
+export async function findMany() {
+  return categoryRepository.findMany();
+}

@@ -308,7 +308,7 @@ and
   "pdfUrl": "http://loremflickr.com/640/480", //url
   "categoryId": 2, // number
   "teacherId": 6, //number
-  "disciplineId":3, //number
+  "disciplineId": 3 //number
 }
 ```
 
@@ -351,6 +351,26 @@ and
   "teacherDisciplineId": 6,
   "views": 2
 }
+```
+
+ </details>
+
+ <details>
+            <summary>
+                <strong>GET</strong> /categories
+            </summary>
+
+- it returns status <strong>200</strong> for succes
+
+and
+
+```json
+[
+  {
+    "id": 1,
+    "name": "P1",
+  }
+]
 ```
 
  </details>
