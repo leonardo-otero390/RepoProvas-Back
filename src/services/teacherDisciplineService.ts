@@ -13,3 +13,13 @@ export async function findByDisciplineAndTeacherId(data: {
   }
   return result;
 }
+
+export async function findTeachersByDisciplineId(disciplineId: number) {
+  const result = await tDRepository.findTeachersByDisciplineId(disciplineId);
+  if (!result) {
+    throw httpErrors.notFound(
+      'Não foi possível encontrar professores para essa disciplina'
+    );
+  }
+  return result;
+}

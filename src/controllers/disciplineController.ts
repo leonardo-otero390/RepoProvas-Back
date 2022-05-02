@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import * as disciplineService from '../services/disciplineService.js';
+import * as tDService from '../services/teacherDisciplineService.js';
 
 export async function findManyByTermId(req: Request, res: Response) {
   const termId = Number(req.params.termId);
@@ -21,4 +22,14 @@ export async function findMany(req: Request, res: Response) {
   }
   const disciplines = await disciplineService.findMany();
   return res.send(disciplines);
+}
+
+export async function findTeachers(req: Request, res: Response) {
+  const disciplineId = Number(req.params.disciplineId);
+  if (Number.isNaN(disciplineId)) {
+    return res.status(400).send('O id da disciplina deve ser um número');
+  }
+
+  const teachers = await tDService.findTeachersByDisciplineId(disciplineId);
+  return res.send(teachers);
 }
