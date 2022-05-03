@@ -6,6 +6,15 @@ export const create = async (data: NewTest) => client.test.create({ data });
 export const find = async (id: number) =>
   client.test.findUnique({ where: { id } });
 
+export const findIncludingAll = async (id: number) =>
+  client.test.findUnique({
+    include: {
+      categories: true,
+      teachersDisciplines: { include: { teachers: true, disciplines: true } },
+    },
+    where: { id },
+  });
+
 export const incrementViews = async (id: number) =>
   client.test.update({ data: { views: { increment: 1 } }, where: { id } });
 
