@@ -20,7 +20,7 @@ Features
 
 - [ ] OAuth
 
-- [ ] Send email
+- [x] Send email
 
 - [ ] Save pdf files
 
