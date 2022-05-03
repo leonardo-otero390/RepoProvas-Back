@@ -4,6 +4,14 @@ import * as testRepository from '../repositories/testRepository.js';
 import * as tDService from '../services/teacherDisciplineService.js';
 import * as categoryService from '../services/categoryService.js';
 
+export async function findIncludingAll(id: number) {
+  const test = await testRepository.findIncludingAll(id);
+  if (!test) {
+    throw httpErrors.notFound('Test not found');
+  }
+  return test;
+}
+
 export async function findManyByDisciplineId(id: number) {
   const tests = await testRepository.findManyByDisciplineIdGroupByCategory(id);
   if (!tests) httpErrors.notFound('Não foi possível encontrar tests');

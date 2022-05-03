@@ -1,4 +1,6 @@
+import { User } from '@prisma/client';
 import { Request, Response } from 'express';
+import { send as sendMail } from '../services/emailService.js';
 import * as testService from '../services/testService.js';
 
 export async function findManyByDisciplineId(req: Request, res: Response) {
@@ -32,5 +34,9 @@ export async function incrementViews(req: Request, res: Response) {
 
 export async function create(req: Request, res: Response) {
   const result = await testService.create(req.body);
+
+  const user = res.locals.user as User;
+
+  sendMail(user.email, result.id);
   return res.status(201).send(result);
 }
