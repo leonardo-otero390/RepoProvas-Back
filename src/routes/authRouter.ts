@@ -6,7 +6,7 @@ import * as userSchemas from '../schemas/userSchemas.js';
 const authRouter = Router();
 
 authRouter.post(
-  '/sign-up',
+  '/signup',
   validateSchema(userSchemas.signUp, 'body'),
   userController.signUp
 );
